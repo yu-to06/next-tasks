@@ -1,4 +1,5 @@
 import {FaRegCheckSquare, FaRegClock, FaTasks} from "react-icons/fa";
+import NavItem from "./NavItem/NavItem";
 
 interface NavItemType {
   id: number;
@@ -30,9 +31,14 @@ const NavList = () => {
   ];
   return (
     <div className='mt-24'>
-      <div>NavList</div>
-      <div>NavList1</div>
-      <div>NavList2</div>
+      {navList.map((item) => (
+        <NavItem
+          key={item.id}
+          label={item.label}
+          link={item.link}
+          icon={item.icon}
+        />
+      ))}
     </div>
   );
 };
