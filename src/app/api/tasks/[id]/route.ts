@@ -1,10 +1,10 @@
 import {TaskModel} from "@/models/task";
-import {connectDB} from "@/utils/database";
+import {connectDb} from "@/utils/database";
 import {NextRequest, NextResponse} from "next/server";
 
 export const GET = async (_: NextRequest, {params}: {params: {id: string}}) => {
   try {
-    await connectDB();
+    await connectDb();
     const task = await TaskModel.findById(params.id);
 
     if (!task) {
@@ -14,13 +14,10 @@ export const GET = async (_: NextRequest, {params}: {params: {id: string}}) => {
       );
     }
 
-    return NextResponse.json({message: "タスクを取得しました", task});
+    return NextResponse.json({message: "タスク取得成功", task});
   } catch (error) {
     console.log(error);
-    return NextResponse.json(
-      {message: "タスクの取得に失敗しました"},
-      {status: 500}
-    );
+    return NextResponse.json({message: "タスク取得失敗"}, {status: 500});
   }
 };
 

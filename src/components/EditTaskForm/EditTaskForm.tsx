@@ -11,8 +11,8 @@ interface EditTaskFormProps {
 const EditTaskForm: React.FC<EditTaskFormProps> = ({task}) => {
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
-  const [dueDate, setDuedate] = useState(task.dueDate);
-  const [isCompleted, setIscompleted] = useState(task.isCompleted);
+  const [dueDate, setDueDate] = useState(task.dueDate);
+  const [isCompleted, setIsCompleted] = useState(task.isCompleted);
 
   const updateTaskWithId = updateTask.bind(null, task._id);
   const initialState: FormState = {error: ""};
@@ -78,7 +78,7 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({task}) => {
             required
             className='block mt-2 py-1.5 px-2 w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300'
             value={dueDate}
-            onChange={(e) => setDuedate(e.target.value)}
+            onChange={(e) => setDueDate(e.target.value)}
           />
         </div>
 
@@ -89,7 +89,7 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({task}) => {
             name='isCompleted'
             className='mr-2 w-4 h-4'
             checked={isCompleted}
-            onChange={(e) => setIscompleted(e.target.checked)}
+            onChange={(e) => setIsCompleted(e.target.checked)}
           />
           <label htmlFor='isCompleted' className='text-sm'>
             Task has Completed

@@ -51,3 +51,20 @@ export const updateTask = async (
   //   redirectはtry.catchブロックの外
   redirect("/");
 };
+
+export const deleteTask = async (
+  id: string,
+  state: FormState,
+) => {
+
+  try {
+    await connectDB();
+    await TaskModel.updateOne({_id:id});
+  } catch (error) {
+    state.error = "Taskの削除に失敗しました";
+    return state;
+  }
+
+  //   redirectはtry.catchブロックの外
+  redirect("/");
+};

@@ -8,8 +8,8 @@ export interface Task {
 }
 
 export interface TaskDocument extends Task, Document {
-  reatedAt: Date;
-  upDateAt: Date;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 const taskSchema = new mongoose.Schema<TaskDocument>(
